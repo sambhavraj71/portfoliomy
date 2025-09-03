@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sambhav Raj | Computer Science Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #7c3aed;
+            --dark-color: #1e1e2e;
+            --light-color: #f8fafc;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --accent-color: #10b981;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            margin-right: 280px; /* Space for sidebar */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .sidebar .info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar .info h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar .info p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sidebar .navbar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .sidebar .navbar a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar .navbar a i {
+            font-size: 1.2rem;
+        }
+
+        .sidebar .navbar a:hover,
+        .sidebar .navbar a.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Home Section */
+        .home {
+            padding: 3rem 5% 3rem;
+            min-height: 100vh;
+        }
+
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            padding: 3rem 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .about .info {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .about .info h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .about .info p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+        }
+
+        .about .image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about .image img {
+            width: 320px;
+            height: 320px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 15px 25px rgba(79, 70, 229, 0.2);
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Skills Section */
+        .skils {
+            padding: 5rem 5%;
+        }
+
+        .skils h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .skils h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .area {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(124, 58, 237, 0.05));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .area:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .area:hover::before {
+            opacity: 1;
+        }
+
+        .area h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .area p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .area ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .area ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 5%;
+        }
+
+        .projects h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .projects h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .project-category h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .parea {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .parea:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .pimg {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .pimg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .parea:hover .pimg img {
+            transform: scale(1.05);
+        }
+
+        .pinfo {
+            padding: 1.5rem;
+        }
+
+        .pinfo h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .pinfo p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .pinfo .btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .pinfo .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(124, 58, 237, 0.05));
+        }
+
+        .contact h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .contact h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info, .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            body {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: 100%;
+                right: -100%;
+                z-index: 1001;
+            }
+
+            .sidebar.active {
+                right: 0;
+            }
+
+            .sidebar-toggle {
+                display: block;
+            }
+
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about .info h2 {
+                font-size: 2.2rem;
+            }
+
+            .about .image img {
+                width: 280px;
+                height: 280px;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .home {
+                padding: 2rem 5%;
+            }
+
+            .skills-container,
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pimg {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="info">
+            <h2>Sambhav Raj</h2>
+            <p>Full Stack Developer</p>
+        </div>
+        <div class="navbar">
+            <a href="#home" class="active" data-section="home"><i class="fas fa-home"></i> Home</a>
+            <a href="#skils" data-section="skils"><i class="fas fa-code"></i> Skills</a>
+            <a href="#projects" data-section="projects"><i class="fas fa-project-diagram"></i> Projects</a>
+            <a href="#contact" data-section="contact"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+    </div>
+    <div class="sidebar-toggle" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="home" id="home">
+        <div class="about fade-in">
+            <div class="info">
+                <h2>Hi, I'm Sambhav Raj</h2>
+                <p>I'm a passionate Full Stack Developer pursuing my Bachelor of Technology in Computer Science (3rd Year) at Centurion University of Technology and Management. I specialize in building modern, responsive web and mobile applications that solve real-world problems.</p>
+                <div class="social-links">
+                    <a href="https://github.com/sambhavraj71" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/sambhavraj" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/sambhav_raj_111?t=_SN_Fs1KJmIMm3BbObVKYA&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/saksham_shrivastava_111?igsh=MWkwMDlkOXNoaWlsdQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="image fade-in delay-1">
+                <img src="Sambhav.jpg" alt="Sambhav Raj">
+            </div>
+        </div>
+
+        <div class="skils" id="skils">
+            <h1 class="fade-in">My Technical Skills</h1>
+            <div class="skills-container">
+                <div class="area fade-in delay-1">
+                    <h3><i class="fab fa-html5"></i> HTML</h3>
+                    <p>Over 5 years of experience in crafting semantic and accessible web structures.</p>
+                    <ul>
+                        <li>Personal portfolio websites</li>
+                        <li>Educational platforms for notes and videos</li>
+                        <li>Responsive landing pages</li>
+                        <li>To-do list web applications</li>
+                        <li>Health monitoring system interfaces</li>
+                    </ul>
+                </div>
+                <div class="area fade-in delay-2">
+                    <h3><i class="fab fa-css3-alt"></i> CSS</h3>
+                    <p>Expertise in modern CSS techniques for responsive and visually appealing designs.</p>
+                    <ul>
+                        <li>Responsive UI designs for multiple screen sizes</li>
+                        <li>Modern landing pages with animations</li>
+                        <li>Dark/light theme implementations</li>
+                        <li>Bootstrap and Tailwind frameworks</li>
+                        <li>Fully responsive web applications</li>
+                    </ul>
+                </div>
+                <div class="area fade-in delay-3">
+                    <h3><i class="fab fa-js"></i> JavaScript</h3>
+                    <p>Building dynamic and interactive web applications with JavaScript.</p>
+                    <ul>
+                        <li>Client-side form validation</li>
+                        <li>Dynamic content rendering and DOM manipulation</li>
+                        <li>Simple games and interactive UI elements</li>
+                        <li>To-do list and calculator applications</li>
+                        <li>AJAX-based data fetching</li>
+                    </ul>
+                </div>
+                <div class="area fade-in delay-4">
+                    <h3><i class="fab fa-java"></i> Java</h3>
+                    <p>Solid foundation in Java for academic and practical applications.</p>
+                    <ul>
+                        <li>Console-based Java applications</li>
+                        <li>Object-oriented programming projects</li>
+                        <li>Data structures and algorithms</li>
+                        <li>File handling and exception management</li>
+                        <li>GUI apps using Java Swing</li>
+                    </ul>
+                </div>
+                <div class="area fade-in delay-1">
+                    <h3><i class="fab fa-github"></i> Git/GitHub</h3>
+                    <p>Proficient in version control and collaborative development.</p>
+                    <ul>
+                        <li>Hosting and sharing projects</li>
+                        <li>Managing repositories with Git</li>
+                        <li>Collaborating with peers</li>
+                        <li>Tracking changes and issues</li>
+                        <li>Maintaining clean codebases</li>
+                    </ul>
+                </div>
+                <div class="area fade-in delay-2">
+                    <h3><i class="fab fa-react"></i> React</h3>
+                    <p>Building modern frontend applications with React and hooks.</p>
+                    <ul>
+                        <li>Single Page Applications (SPAs)</li>
+                        <li>Reusable functional components</li>
+                        <li>State management with useState/useEffect</li>
+                        <li>API integration and dynamic data</li>
+                        <li>UI with React and Tailwind CSS</li>
+                    </ul>
+                </div>
+                <div class="area fade-in delay-3">
+                    <h3><i class="fab fa-node-js"></i> Node.js</h3>
+                    <p>Backend development with Node.js and Express for scalable APIs.</p>
+                    <ul>
+                        <li>RESTful APIs with Express.js</li>
+                        <li>Handling routes and middleware</li>
+                        <li>MongoDB integration with Mongoose</li>
+                        <li>Basic authentication systems</li>
+                        <li>Deploying apps on Heroku</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects" id="projects">
+            <h1 class="fade-in">My Projects</h1>
+            <div class="project-category">
+                <h2 class="fade-in delay-1">Web Development</h2>
+                <div class="projects-container">
+                    <div class="parea fade-in delay-2">
+                        <div class="pimg">
+                            <img src="viewflix.jpg" alt="View Flix">
+                        </div>
+                        <div class="pinfo">
+                            <h3>View Flix</h3>
+                            <p>A frontend OTT platform with categorized movies and web series links for seamless downloading.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="parea fade-in delay-3">
+                        <div class="pimg">
+                            <img src="learnbysr.jpg" alt="Learn by SR">
+                        </div>
+                        <div class="pinfo">
+                            <h3>Learn by SR</h3>
+                            <p>An educational platform for B.Tech students to access notes, previous year questions, and study materials.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="parea fade-in delay-4">
+                        <div class="pimg">
+                            <img src="skart.jpg" alt="SR Cart">
+                        </div>
+                        <div class="pinfo">
+                            <h3>SR Cart</h3>
+                            <p>An e-commerce website with categorized products and an admin panel for sellers.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="parea fade-in delay-4">
+                        <div class="pimg">
+                            <img src="resume-maker.jpg" alt="SR Cart">
+                        </div>
+                        <div class="pinfo">
+                            <h3>Resume Maker</h3>
+                            <p>A resume builder platform with customizable templates and an admin panel for user management.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="parea fade-in delay-4">
+                        <div class="pimg">
+                            <img src="tbs.jpg" alt="SR Cart">
+                        </div>
+                        <div class="pinfo">
+                            <h3>Tech by Sambhav</h3>
+                            <p>A tech platform with categorized gadgets and an admin panel for seller management.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="parea fade-in delay-4">
+                        <div class="pimg">
+                            <img src="mobpay.jpg" alt="SR Cart">
+                        </div>
+                        <div class="pinfo">
+                            <h3>Top-up Mobile</h3>
+                           <p>A mobile recharge site with secure payments,transfer money and admin management.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-category">
+                <h2 class="fade-in delay-1">Android Development</h2>
+                <div class="projects-container">
+                    <div class="parea fade-in delay-2">
+                        <div class="pimg">
+                            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&auto=format&fit=crop&w=1176&q=80" alt="Library Management System">
+                        </div>
+                        <div class="pinfo">
+                            <h3>Library Management System</h3>
+                            <p>An Android app for library management with features like student records, book issuing, and library details.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="parea fade-in delay-3">
+                        <div class="pimg">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Health Monitoring App">
+                        </div>
+                        <div class="pinfo">
+                            <h3>Health Monitoring App</h3>
+                            <p>An Android app that tracks health metrics like heart rate, steps, and sleep patterns, integrated with wearables.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="parea fade-in delay-4">
+                        <div class="pimg">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Campus Navigation">
+                        </div>
+                        <div class="pinfo">
+                            <h3>Campus Navigation</h3>
+                            <p>An Android app for university campus navigation with indoor maps and event location features.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact" id="contact">
+            <h1 class="fade-in">Get In Touch</h1>
+            <div class="contact-container">
+                <div class="contact-info fade-in delay-1">
+                    <h3>Connect With Me</h3>
+                    <p>I'm always open to new opportunities, collaborations, or just a chat about tech!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>sambhavraj83@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 7361065324</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Narkatiagan, Patna, India</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/sambhavraj71" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/sambhavraj" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/sambhav_raj_111?t=_SN_Fs1KJmIMm3BbObVKYA&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/saksham_shrivastava_111?igsh=MWkwMDlkOXNoaWlsdQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form fade-in delay-2">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Designed & Built by Sambhav Raj</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#skils">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="copyright">© 2025 Sambhav Raj. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sidebar toggle for mobile
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                sidebarToggle.innerHTML = sidebar.classList.contains('active') ?
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('.sidebar .navbar a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    window.scrollTo({
+                        top: section.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    if (sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                        sidebarToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            });
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                backToTop.classList.toggle('active', window.pageYOffset > 300);
+            });
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+
+            // Intersection Observer for animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Update active nav link on scroll
+            const sections = document.querySelectorAll('.home, .skils, .projects, .contact');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('data-section') === current);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
