@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Sambhav Raj · black + navy · responsive portfolio</title>
+    <title>Sambhav Raj · Black & Navy · Responsive Portfolio</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter + Space Grotesk -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -23,7 +23,7 @@
             overflow-x: hidden;
         }
 
-        /* particles background - mobile friendly */
+        /* particle background */
         #particles-bg {
             position: fixed;
             top: 0;
@@ -67,36 +67,34 @@
             z-index: -1;
         }
 
-        /* main layout — flexible with sidebar */
         .app {
-            max-width: 1400px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 1.5rem;
             position: relative;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
-        /* right sidebar — fixed for desktop, overlay for mobile */
+        /* info panel */
         .info-panel {
             position: fixed;
             top: 1.5rem;
             right: 1.5rem;
-            width: 280px;
-            background: rgba(0, 10, 25, 0.92);
-            backdrop-filter: blur(18px) saturate(200%);
+            width: 290px;
+            background: rgba(0, 10, 25, 0.94);
+            backdrop-filter: blur(20px) saturate(200%);
             border: 1px solid #2f6fa0;
-            border-radius: 32px;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 25px 40px -10px #001a33;
+            border-radius: 38px;
+            padding: 2rem 1.6rem;
+            box-shadow: 0 25px 45px -12px #001a33;
             z-index: 1000;
             transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             transform: translateX(0);
         }
 
-        /* desktop: sidebar always visible */
         @media (min-width: 1200px) {
             .app {
-                margin-right: 320px;
+                margin-right: 340px;
                 padding-right: 1rem;
             }
             .info-panel {
@@ -107,7 +105,6 @@
             }
         }
 
-        /* tablet & mobile: sidebar hidden by default, slides from right */
         @media (max-width: 1199px) {
             .info-panel {
                 transform: translateX(120%);
@@ -115,6 +112,7 @@
                 right: 1rem;
                 width: 280px;
                 max-width: calc(100vw - 2rem);
+                border-radius: 32px;
             }
             .info-panel.active {
                 transform: translateX(0);
@@ -132,7 +130,6 @@
             }
         }
 
-        /* extra small screens */
         @media (max-width: 640px) {
             .info-panel {
                 width: 260px;
@@ -144,18 +141,25 @@
                 padding: 0.85rem;
             }
             .section-heading {
-                font-size: 2rem !important;
+                font-size: 1.9rem !important;
                 padding-left: 1rem !important;
+            }
+            .about-text h1 {
+                font-size: 2rem !important;
+            }
+            .about-text h2 {
+                font-size: 1.3rem !important;
             }
         }
 
         .panel-header h2 {
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 1.9rem;
+            font-weight: 700;
             background: linear-gradient(145deg, #b8e2ff, #5fb0ff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            letter-spacing: -0.02em;
         }
 
         .panel-header .sub {
@@ -164,7 +168,7 @@
             border-bottom: 1px solid #2f5f8a;
             padding-bottom: 1rem;
             margin-bottom: 1.8rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         .nav-links {
@@ -176,12 +180,12 @@
         .nav-links a {
             color: #b5d5ff;
             font-weight: 500;
-            padding: 0.6rem 1rem;
-            border-radius: 18px;
-            transition: all 0.2s;
+            padding: 0.7rem 1rem;
+            border-radius: 28px;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.9rem;
             border: 1px solid transparent;
             font-size: 1rem;
         }
@@ -194,10 +198,11 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            background: rgba(0, 80, 160, 0.4);
+            background: rgba(0, 80, 160, 0.45);
             border-color: #3f9fff;
             color: #ffffff;
-            transform: translateX(-4px);
+            transform: translateX(-5px);
+            box-shadow: 0 2px 8px rgba(0,160,255,0.2);
         }
 
         .social-mini {
@@ -209,7 +214,7 @@
 
         .social-mini a {
             color: #7bb9fe;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             transition: 0.2s;
         }
 
@@ -225,8 +230,8 @@
             right: 1rem;
             width: 52px;
             height: 52px;
-            background: rgba(10, 20, 40, 0.9);
-            backdrop-filter: blur(12px);
+            background: rgba(10, 20, 40, 0.92);
+            backdrop-filter: blur(14px);
             border: 1px solid #2f6fa0;
             border-radius: 30px;
             z-index: 1100;
@@ -235,17 +240,18 @@
             font-size: 1.8rem;
             color: #9fc9ff;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+            transition: all 0.2s;
         }
 
         section {
             margin-bottom: 4rem;
-            scroll-margin-top: 1.5rem;
+            scroll-margin-top: 1.8rem;
         }
 
         .section-heading {
-            font-size: 2.5rem;
-            font-weight: 600;
+            font-size: 2.6rem;
+            font-weight: 700;
             letter-spacing: -0.02em;
             background: linear-gradient(145deg, #ffffff, #9fc9ff);
             -webkit-background-clip: text;
@@ -256,17 +262,18 @@
             margin-bottom: 2rem;
         }
 
-        /* about card */
+        /* about card - flexible layout */
         .about-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(12px);
             border: 1px solid #2f6fa0;
-            border-radius: 40px;
+            border-radius: 48px;
             padding: 2rem;
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             align-items: center;
+            transition: all 0.2s;
         }
 
         .about-text {
@@ -274,216 +281,257 @@
             min-width: 240px;
         }
 
-        .about-text h3 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            background: linear-gradient(145deg, #d8edff, #6fb0ff);
+        .about-text h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #ffffff, #8fcbff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
-        .about-highlight {
-            color: #89c2ff;
-            font-size: 1.2rem;
-            margin: 0.8rem 0 1rem;
-        }
-
-        .about-stats {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .stat-badge {
-            background: #0a1428;
-            border: 1px solid #2f7fbf;
-            border-radius: 30px;
-            padding: 0.4rem 1rem;
+        .about-text h2 {
+            font-size: 1.6rem;
             font-weight: 500;
-            font-size: 0.85rem;
-            color: #b6d6ff;
-        }
-
-        .about-image img {
-            width: 200px;
-            height: 200px;
-            border-radius: 32px;
-            object-fit: cover;
-            border: 2px solid #2f8fff;
-            box-shadow: 12px 12px 0 #0a1428;
-        }
-
-        @media (max-width: 700px) {
-            .about-image img {
-                width: 150px;
-                height: 150px;
-            }
-            .about-text h3 {
-                font-size: 2rem;
-            }
-        }
-
-        /* experience */
-        .experience-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .exp-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(6px);
-            border: 1px solid #2f6fa0;
-            border-radius: 28px;
-            padding: 1.5rem;
-        }
-
-        .exp-header {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 0.8rem;
+            color: #b3dbff;
             margin-bottom: 0.8rem;
         }
 
-        .exp-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #dcf0ff;
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: #bbdbff;
+            margin: 0.8rem 0;
+            border-left: 3px solid #3f9fff;
+            padding-left: 1rem;
         }
 
-        .exp-company {
-            color: #85c1ff;
-            font-weight: 500;
-        }
-
-        .exp-date {
-            margin-left: auto;
-            color: #689fd0;
-            font-size: 0.85rem;
-        }
-
-        .exp-desc li {
+        /* COMPACT STATS: 2 rows on mobile, clean icons */
+        .about-stats {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin: 1.2rem 0 1.2rem;
+            align-items: center;
+        }
+        .stat-badge {
+            background: #0a1428cc;
+            border: 1px solid #2f7fbf;
+            border-radius: 60px;
+            padding: 0.4rem 1rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #cce4ff;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        /* Internship badge - icon only style on mobile but keeps text on desktop */
+        .stat-badge.intern-badge i {
+            font-size: 0.9rem;
+        }
+        
+        /* On medium screens reduce text size */
+        @media (max-width: 680px) {
+            .about-stats {
+                gap: 0.6rem;
+            }
+            .stat-badge {
+                font-size: 0.72rem;
+                padding: 0.35rem 0.85rem;
+                white-space: nowrap;
+            }
+        }
+        
+        /* On mobile phones: first row: projects + hackathon, second row: internship badge alone */
+        @media (max-width: 550px) {
+            .about-stats {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.6rem;
+            }
+            /* Make internship badge span full width on second row */
+            .stat-badge.intern-badge {
+                grid-column: span 2;
+                justify-content: center;
+                width: 100%;
+                white-space: nowrap;
+            }
+            .stat-badge {
+                white-space: nowrap;
+                justify-content: center;
+                font-size: 0.7rem;
+                padding: 0.4rem 0.5rem;
+            }
+        }
+        
+        @media (max-width: 420px) {
+            .stat-badge {
+                font-size: 0.65rem;
+                padding: 0.35rem 0.3rem;
+            }
+        }
+
+        /* Buttons row - responsive */
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        .btn {
+            display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 0.4rem;
-            color: #c6e0ff;
-        }
-
-        .verify-btn {
-            background: transparent;
-            border: 1px solid #4f9fff;
-            color: #bbdcff;
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.2s;
-            margin-top: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .verify-btn:hover {
-            background: #1a3855;
-            border-color: #7fbfff;
+            background: #1e4b73;
+            border: 1px solid #5fb0ff;
+            padding: 0.7rem 1.4rem;
+            border-radius: 60px;
+            font-weight: 600;
             color: white;
+            text-decoration: none;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .btn-outline {
+            background: transparent;
+        }
+        .btn:hover {
+            background: #2f6fa0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,80,160,0.3);
+        }
+        
+        /* Mobile: adjust buttons */
+        @media (max-width: 550px) {
+            .hero-buttons {
+                gap: 0.7rem;
+                margin-top: 1rem;
+                justify-content: flex-start;
+            }
+            .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
         }
 
-        /* skills grid */
-        .skills-grid {
+        /* Profile image - on mobile it will naturally wrap below text */
+        .about-image {
+            flex-shrink: 0;
+        }
+        .about-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 38px;
+            object-fit: cover;
+            border: 2px solid #2f8fff;
+            box-shadow: 16px 16px 0 #0a1428;
+            transition: 0.2s;
+        }
+        @media (max-width: 700px) {
+            .about-image img {
+                width: 140px;
+                height: 140px;
+                box-shadow: 10px 10px 0 #0a1428;
+            }
+        }
+        /* On very small screens, image centers but layout stays clean */
+        @media (max-width: 550px) {
+            .about-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-text {
+                text-align: center;
+            }
+            .hero-tagline {
+                text-align: left;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .about-stats {
+                justify-content: center;
+            }
+        }
+
+        /* other sections grids */
+        .experience-grid, .skills-grid, .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 1.5rem;
         }
-
-        .skill-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-            border: 1px solid #2f6fa0;
-            border-radius: 28px;
-            padding: 1.5rem;
+        .experience-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
-
-        .skill-card h3 {
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: #bedeff;
-            border-bottom: 2px solid #2f7fbf;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+        .skills-grid {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         }
-
-        .skill-card li {
-            margin: 0.6rem 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #d2e6ff;
+        .achievements-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         }
-
-        /* projects tiers */
-        .tier-block {
-            margin-top: 2rem;
-        }
-
-        .tier-badge {
-            font-size: 1.3rem;
-            font-weight: 600;
-            background: #0a1428;
-            border-left: 8px solid #2f8fff;
-            padding: 0.4rem 1.5rem;
-            border-radius: 0 50px 50px 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-            color: #cce4ff;
-        }
-
-        .tier1 .tier-badge {
-            border-left-color: #ffb347;
-            color: #ffe3b2;
-        }
-
-        .tier2 .tier-badge {
-            border-left-color: #4fa0ff;
-        }
-
-        .tier3 .tier-badge {
-            border-left-color: #8fafcf;
-        }
-
+        
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
         }
+        @media (max-width: 780px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+        @media (max-width: 540px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.9rem;
+            }
+        }
+        @media (max-width: 450px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            .proj-head {
+                font-size: 0.8rem;
+                padding: 0.6rem;
+            }
+            .proj-body {
+                font-size: 0.7rem;
+                padding: 0.6rem 0.5rem;
+            }
+            .btn.small {
+                padding: 3px 6px;
+                font-size: 0.6rem;
+            }
+        }
 
-        .project-item {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
+        .exp-card, .skill-card, .project-item, .achievement-card {
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
             border: 1px solid #2f6fa0;
-            border-radius: 24px;
-            overflow: hidden;
-            transition: 0.2s;
-            padding-bottom: 1rem;
+            border-radius: 32px;
+            transition: all 0.2s ease;
         }
-
-        .project-item:hover {
+        .exp-card, .skill-card, .achievement-card {
+            padding: 1.5rem;
+        }
+        .exp-card:hover, .skill-card:hover, .project-item:hover, .achievement-card:hover {
             border-color: #6fb0ff;
-            transform: scale(1.01) translateY(-4px);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px -12px rgba(0,80,160,0.4);
         }
-
+        .project-item {
+            padding: 0 0 0.8rem 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
         .proj-head {
             background: #0a1428;
-            padding: 1rem;
-            font-size: 1.2rem;
+            padding: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
@@ -492,67 +540,126 @@
             border-bottom: 1px solid #2f6fa0;
             color: #d0e8ff;
         }
-
         .proj-body {
-            padding: 1rem;
+            padding: 0.9rem 0.8rem;
             color: #cce0ff;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            flex: 1;
         }
-
-        .proj-tag {
-            background: #1a3855;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
+        .project-link {
+            padding: 0 0.8rem 0.8rem;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .btn.small {
+            padding: 4px 10px;
             font-size: 0.7rem;
+            border-radius: 30px;
+            text-decoration: none;
+            background: #0f1a2c;
+            border: 1px solid #3f7fbf;
+            color: #cbe5ff;
+        }
+        .btn-outline.small {
+            background: transparent;
+        }
+        .private-tag {
+            font-size: 0.7rem;
+            color: #9bbde0;
         }
 
-        /* achievements */
-        .achievements-grid {
+        .exp-header {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.2rem;
-        }
-
-        .achievement-card {
-            flex: 1 1 200px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-            border: 1px solid #2f6fa0;
-            border-radius: 28px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .achievement-card i {
-            font-size: 2.2rem;
-            color: #85c5ff;
-            margin-bottom: 0.8rem;
-        }
-
-        .achievement-card p {
-            font-weight: 500;
+            align-items: baseline;
+            gap: 0.8rem;
             margin-bottom: 1rem;
-            color: #d0e8ff;
+        }
+        .exp-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #dcf0ff;
+        }
+        .exp-company {
+            color: #85c1ff;
+            font-weight: 500;
+        }
+        .exp-date {
+            margin-left: auto;
+            color: #689fd0;
+            font-size: 0.8rem;
+        }
+        .exp-desc li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+            color: #c6e0ff;
         }
 
-        /* contact */
+        .verify-btn {
+            background: transparent;
+            border: 1px solid #4f9fff;
+            color: #bbdcff;
+            padding: 0.4rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .verify-btn:hover {
+            background: #1a3855;
+            border-color: #7fbfff;
+            color: white;
+        }
+
+        .tier-block {
+            margin-top: 2rem;
+        }
+        .tier-badge {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #0a1428cc;
+            border-left: 8px solid #2f8fff;
+            padding: 0.4rem 1.5rem;
+            border-radius: 0 60px 60px 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            color: #cce4ff;
+        }
+        @media (max-width: 550px) {
+            .tier-badge {
+                font-size: 1rem;
+                padding: 0.3rem 1rem;
+            }
+        }
+
         .contact-panel {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(12px);
             border: 1px solid #2f7fbf;
-            border-radius: 40px;
+            border-radius: 44px;
             padding: 2rem;
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
         }
-
+        .contact-info {
+            flex: 1.2;
+            min-width: 200px;
+        }
         .contact-info h3 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: #b8dbff;
         }
-
         .contact-detail {
             display: flex;
             align-items: center;
@@ -560,7 +667,6 @@
             margin: 1rem 0;
             word-break: break-word;
         }
-
         .contact-form {
             flex: 2;
             min-width: 220px;
@@ -568,18 +674,20 @@
             flex-direction: column;
             gap: 1rem;
         }
-
-        .contact-form input,
-        .contact-form textarea {
-            background: #0a1428;
+        .contact-form input, .contact-form textarea {
+            background: #0a1428dd;
             border: 1px solid #2f7fbf;
-            border-radius: 50px;
+            border-radius: 60px;
             padding: 0.9rem 1.5rem;
             color: white;
             outline: none;
             font-size: 1rem;
+            transition: 0.2s;
         }
-
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #7fbfff;
+            box-shadow: 0 0 0 2px #2f8fff40;
+        }
         .contact-form button {
             background: #1e4b73;
             border: 1px solid #5fb0ff;
@@ -591,22 +699,19 @@
             transition: 0.2s;
             font-size: 1.1rem;
         }
-
         .contact-form button:hover {
             background: #2f6fa0;
-            box-shadow: 0 0 16px #3f9fff;
+            box-shadow: 0 0 14px #3f9fff;
         }
-
-        /* toast */
         .success-toast {
             position: fixed;
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            background: #0a1428;
+            background: #0a1428ee;
             border: 1px solid #5fb0ff;
             color: #dbeeff;
-            padding: 0.8rem 1.8rem;
+            padding: 0.8rem 2rem;
             border-radius: 60px;
             font-weight: 500;
             z-index: 9999;
@@ -615,38 +720,33 @@
             transition: 0.3s;
             backdrop-filter: blur(12px);
             white-space: nowrap;
-            font-size: 0.9rem;
         }
-
         @media (max-width: 550px) {
             .success-toast {
                 white-space: normal;
+                width: 85%;
                 text-align: center;
-                width: 90%;
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
         }
-
         .success-toast.show {
             opacity: 1;
             visibility: visible;
         }
-
         .footer {
             text-align: center;
             padding: 2rem 0 1rem;
             color: #7fa5cf;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
-
         .back2top {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: #0a1428;
+            background: #0a1428cc;
             width: 48px;
             height: 48px;
-            border-radius: 30px;
+            border-radius: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -658,17 +758,16 @@
             pointer-events: none;
             border: 1px solid #3f9fff;
             z-index: 100;
+            backdrop-filter: blur(4px);
         }
-
         .back2top.show {
             opacity: 1;
             pointer-events: auto;
         }
-
         @media (max-width: 1199px) {
             .back2top {
-                right: 1.5rem;
-                bottom: 1.5rem;
+                right: 1.2rem;
+                bottom: 1.2rem;
             }
         }
     </style>
@@ -679,9 +778,7 @@
         <div class="dot-grid-secondary"></div>
         <div class="glow-line"></div>
     </div>
-
     <div class="success-toast" id="successToast"><i class="fas fa-check-circle" style="color:#5fb0ff;"></i> Message sent! Email client opened.</div>
-
     <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
     <div class="info-panel" id="infoPanel">
         <div class="panel-header">
@@ -697,217 +794,113 @@
             <a href="#contact" class="nav-link"><i class="fas fa-paper-plane"></i> Contact</a>
         </div>
         <div class="social-mini">
-            <a href="#" aria-label="github"><i class="fab fa-github"></i></a>
-            <a href="#" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="twitter"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/sambhavraj71" aria-label="github"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/sambhavraj" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://x.com/sambhav_raj_111" aria-label="twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/sambh_here?igsh=ZDRzOWZhYWRhNDF6" aria-label="instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
-
     <div class="app">
-        <!-- HOME -->
         <section id="home">
             <div class="about-card">
                 <div class="about-text">
-                    <h3>Sambhav Raj</h3>
-                    <div class="about-highlight">full‑stack · AI / cybersecurity · IoT</div>
-                    <p>Third‑year CS student, Centurion University. I build verified, sharp systems: offline voice assistant, phishing detector (84.6% accuracy), AI interview simulator, IoT health monitor. Eco‑hackathon winner & IIT BBS finalist.</p>
+                    <h1>Sambhav Raj</h1>
+                    <h2>Full-Stack Developer | AI/ML Engineer</h2>
+                    <p class="hero-tagline">I build scalable SaaS applications and AI-powered systems that solve real-world problems.</p>
+                    <p>Third-year Computer Science student focused on developing end-to-end full stack applications and machine learning solutions. Built systems like phishing detection (84.6% accuracy), AI interview simulator, and production-ready web apps with authentication & real-time features.</p>
+                    
+                    <!-- COMPACT STATS: Projects + Hackathon in row1, Internship as icon badge row2 on mobile -->
                     <div class="about-stats">
-                        <span class="stat-badge"><i class="fa-regular fa-star"></i> 5+ high‑impact projects</span>
-                        <span class="stat-badge"><i class="fa-regular fa-clock"></i> Infotact + CodeAlpha</span>
+                        <span class="stat-badge"><i class="fas fa-rocket"></i> 5+ Full-Stack & AI Projects</span>
+                        <span class="stat-badge"><i class="fas fa-trophy"></i> Hackathon Winner</span>
+                        <span class="stat-badge intern-badge"><i class="fas fa-briefcase"></i> <span class="intern-text">Infotact & CodeAlpha</span></span>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">View Projects</a>
+                        <a href="#" class="btn btn-outline" download>Download Resume</a>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="sambhav.jpg" alt="profile">
+                    <img src="sambhav.jpg" alt="Sambhav Raj profile photo">
                 </div>
             </div>
         </section>
-
-        <!-- EXPERIENCE -->
         <section id="experience">
             <h2 class="section-heading">experience</h2>
             <div class="experience-grid">
                 <div class="exp-card">
-                    <div class="exp-header">
-                        <span class="exp-title">Full Stack Developer Intern</span>
-                        <span class="exp-company">@ Infotact Solutions</span>
-                        <span class="exp-date">Aug 2025</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li><i class="fas fa-angle-right" style="color:#5fb0ff;"></i> REST APIs serving 500+ requests/day – Node.js, Express, MongoDB</li>
-                        <li><i class="fas fa-angle-right" style="color:#5fb0ff;"></i> Built responsive UI, Git/GitHub, deployed backend, Postman testing</li>
-                    </ul>
+                    <div class="exp-header"><span class="exp-title">Full Stack Developer Intern</span><span class="exp-company">@ Infotact Solutions</span><span class="exp-date">Aug 2025</span></div>
+                    <ul class="exp-desc"><li><i class="fas fa-angle-right" style="color:#5fb0ff;"></i> REST APIs serving 500+ requests/day – Node.js, Express, MongoDB</li><li><i class="fas fa-angle-right" style="color:#5fb0ff;"></i> Built responsive UI, Git/GitHub, deployed backend, Postman testing</li></ul>
                     <button class="verify-btn" onclick="showVerify('Infotact Solutions · Full Stack Intern · offer letter & LinkedIn')"><i class="fas fa-check-circle"></i> verify</button>
                 </div>
                 <div class="exp-card">
-                    <div class="exp-header">
-                        <span class="exp-title">Frontend Developer Intern</span>
-                        <span class="exp-company">@ CodeAlpha</span>
-                        <span class="exp-date">May 2025</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li><i class="fas fa-angle-right" style="color:#5fb0ff;"></i> Responsive interactive pages (HTML/CSS/JS), cross‑browser compatibility</li>
-                        <li><i class="fas fa-angle-right" style="color:#5fb0ff;"></i> Clean UI implementation & component optimization</li>
-                    </ul>
+                    <div class="exp-header"><span class="exp-title">Frontend Developer Intern</span><span class="exp-company">@ CodeAlpha</span><span class="exp-date">May 2025</span></div>
+                    <ul class="exp-desc"><li><i class="fas fa-angle-right" style="color:#5fb0ff;"></i> Responsive interactive pages (HTML/CSS/JS), cross‑browser compatibility</li><li><i class="fas fa-angle-right" style="color:#5fb0ff;"></i> Clean UI implementation & component optimization</li></ul>
                     <button class="verify-btn" onclick="showVerify('CodeAlpha · Frontend Intern · certificate available')"><i class="fas fa-check-circle"></i> verify</button>
                 </div>
             </div>
         </section>
-
-        <!-- SKILLS -->
         <section id="skills">
-            <h2 class="section-heading">technical arsenal</h2>
+            <h2 class="section-heading">technical expertise</h2>
             <div class="skills-grid">
-                <div class="skill-card"><h3><i class="fab fa-python"></i> AI/ML</h3><ul><li><i class="fas fa-caret-right"></i> NLP, computer vision, feature engineering</li><li><i class="fas fa-caret-right"></i> phishing detection (84.6% acc)</li></ul></div>
-                <div class="skill-card"><h3><i class="fas fa-globe"></i> full‑stack</h3><ul><li><i class="fas fa-caret-right"></i> Angular, React, Node.js, Express</li><li><i class="fas fa-caret-right"></i> Flask, Spring Boot, MongoDB, MySQL</li></ul></div>
-                <div class="skill-card"><h3><i class="fas fa-robot"></i> automation</h3><ul><li><i class="fas fa-caret-right"></i> offline voice assistant (OS, file handling)</li><li><i class="fas fa-caret-right"></i> AI interview simulator (CV + NLP)</li></ul></div>
-                <div class="skill-card"><h3><i class="fas fa-shield"></i> security</h3><ul><li><i class="fas fa-caret-right"></i> phishing detection, secure API, data cleaning</li></ul></div>
+                <div class="skill-card"><h3><i class="fas fa-code"></i> full-stack development</h3><ul><li> React, Angular (frontend)</li><li> Node.js, Express, Flask, Spring Boot</li><li> REST APIs, authentication, real-time systems</li><li><i class="fas fa-caret-right"></i> MongoDB, MySQL</li></ul></div>
+                <div class="skill-card"><h3><i class="fas fa-brain"></i> AI / ML engineering</h3><ul><li> NLP, classification models, feature engineering</li><li> phishing detection system (84.6% accuracy)</li><li> model training, evaluation, data preprocessing</li></ul></div>
+                <div class="skill-card"><h3><i class="fas fa-layer-group"></i> system building</h3><ul><li> end-to-end SaaS applications</li><li> authentication, dashboards, API integration</li><li> scalable architecture & clean code practices</li></ul></div>
+                <div class="skill-card"><h3><i class="fas fa-tools"></i> tools & deployment</h3><ul><li> Git, GitHub, Vercel</li><li> Postman, REST testing</li><li> basic CI/CD & deployment workflows</li></ul></div>
             </div>
         </section>
-
-        <!-- PROJECTS -->
         <section id="projects">
             <h2 class="section-heading">flagship projects (verified)</h2>
-            <div class="tier-block tier1">
-                <div class="tier-badge"><i class="fas fa-crown" style="color:#ffb347;"></i> TIER 1 – high impact</div>
-                <div class="projects-grid">
-                    <div class="project-item"><div class="proj-head">Trading-bot-assignment <span class="proj-tag">Python</span></div><div class="proj-body">Automated trading logic + finance.</div><button class="verify-btn" onclick="showVerify('Trading bot · private repo · demo')"><i class="fas fa-check-circle"></i> verify</button></div>
-                    <div class="project-item"><div class="proj-head">phising_detector <span class="proj-tag">ML 84.6%</span></div><div class="proj-body">Supervised learning, feature engineering.</div><button class="verify-btn" onclick="showVerify('Phishing detector · accuracy 84.6% · test set')"><i class="fas fa-check-circle"></i> verify</button></div>
-                    <div class="project-item"><div class="proj-head">UPSC-AI-Buddy <span class="proj-tag">AI niche</span></div><div class="proj-body">Generative AI prep for aspirants.</div><button class="verify-btn" onclick="showVerify('UPSC AI Buddy · prototype')"><i class="fas fa-check-circle"></i> verify</button></div>
-                    <div class="project-item"><div class="proj-head">Ai-Interview-Simulation <span class="proj-tag">Spring+CV</span></div><div class="proj-body">Backend + python CV, facial expression.</div><button class="verify-btn" onclick="showVerify('AI interview · video analysis demo')"><i class="fas fa-check-circle"></i> verify</button></div>
-                    <div class="project-item"><div class="proj-head">Elite-Computer-Class</div><div class="proj-body">Client website.</div><button class="verify-btn" onclick="showVerify('Elite Computer · live site')"><i class="fas fa-check-circle"></i> verify</button></div>
-                </div>
-            </div>
-            <div class="tier-block tier2">
-                <div class="tier-badge"><i class="fas fa-bolt"></i> TIER 2 – full‑stack</div>
-                <div class="projects-grid">
-                    <div class="project-item"><div class="proj-head">e-commerce</div><div class="proj-body">MERN with cart, auth.</div><button class="verify-btn" onclick="showVerify('E‑commerce · live demo')"><i class="fas fa-check-circle"></i> verify</button></div>
-                    <div class="project-item"><div class="proj-head">File-Convertor</div><div class="proj-body">Frontend+backend utility.</div><button class="verify-btn" onclick="showVerify('Full‑stack file convertor')"><i class="fas fa-check-circle"></i> verify</button></div>
-                    <div class="project-item"><div class="proj-head">Food-App</div><div class="proj-body">UI + API (restaurants).</div><button class="verify-btn" onclick="showVerify('Food ordering UI')"><i class="fas fa-check-circle"></i> verify</button></div>
-                    <div class="project-item"><div class="proj-head">Viewflix</div><div class="proj-body">Movie platform.</div><button class="verify-btn" onclick="showVerify('Viewflix · OTT interface')"><i class="fas fa-check-circle"></i> verify</button></div>
-                </div>
-            </div>
-            <div class="tier-block tier3">
-                <div class="tier-badge"><i class="fas fa-layer-group"></i> TIER 3 – support</div>
-                <div class="projects-grid">
-                    <div class="project-item"><div class="proj-head">student-helper</div><div class="proj-body">Notes, PYQs.</div><button class="verify-btn" onclick="showVerify('Student helper · notes')"><i class="fas fa-check-circle"></i> verify</button></div>
-                    <div class="project-item"><div class="proj-head">TBS-Manager</div><div class="proj-body">Management system.</div><button class="verify-btn" onclick="showVerify('TBS manager · logic')"><i class="fas fa-check-circle"></i> verify</button></div>
-                    <div class="project-item"><div class="proj-head">portfolio-sambhav</div><div class="proj-body">this portfolio.</div><button class="verify-btn" onclick="showVerify('You are looking at it ✓')"><i class="fas fa-check-circle"></i> verify</button></div>
-                </div>
-            </div>
+            <div class="tier-block tier1"><div class="tier-badge"><i class="fas fa-crown" style="color:#ffb347;"></i> TIER 1 – high impact</div><div class="projects-grid">
+                <div class="project-item"><div class="proj-head">Trading-bot-assignment <span class="proj-tag">Python</span></div><div class="proj-body">Automated trading logic + finance.</div><div class="project-link"><span class="private-tag">🔒 Private Repo</span><a href="#" class="btn small btn-outline">Demo</a></div></div>
+                <div class="project-item"><div class="proj-head">phising_detector <span class="proj-tag">ML 84.6%</span></div><div class="proj-body">Supervised learning, URL feature extraction, phishing classification, Flask deployment</div><div class="project-link"><a href="https://github.com/sambhavraj71/phising_detector.git" class="btn small"><i class="fab fa-github"></i> code</a><a href="https://phising-detector-rk3r.onrender.com/" class="btn small btn-outline">Live</a></div></div>
+                <div class="project-item"><div class="proj-head">UPSC-AI-Buddy <span class="proj-tag">AI niche</span></div><div class="proj-body">Generative AI prep for aspirants.</div><div class="project-link"><a href="https://github.com/sambhavraj71/UPSC-AI-Buddy.git" class="btn small"><i class="fab fa-github"></i> code</a><a href="https://upsc-ai-buddy.onrender.com/" class="btn small btn-outline">Live</a></div></div>
+                <div class="project-item"><div class="proj-head">Ai-Interview-Simulation <span class="proj-tag">Spring+CV</span></div><div class="proj-body">Backend + python CV, facial expression.</div><div class="project-link"><a href="https://github.com/sambhavraj71/Ai-Interview-Simulation.git" class="btn small"><i class="fab fa-github"></i> code</a><a href="https://ai-interview-simulation.onrender.com/" class="btn small btn-outline">Live</a></div></div>
+                <div class="project-item"><div class="proj-head">Elite-Computer-Class</div><div class="proj-body">Client website.</div><div class="project-link"><a href="https://github.com/sambhavraj71/Elite-Computer-Class.git" class="btn small"><i class="fab fa-github"></i> code</a><a href="https://elite-computer-class.onrender.com/" class="btn small btn-outline">Live</a></div></div>
+            </div></div>
+            <div class="tier-block tier2"><div class="tier-badge"><i class="fas fa-bolt"></i> TIER 2 – full‑stack</div><div class="projects-grid">
+                <div class="project-item"><div class="proj-head">e-commerce</div><div class="proj-body">MERN with cart, auth.</div><div class="project-link"><a href="#" class="btn small"><i class="fab fa-github"></i> code</a><a href="#" class="btn small btn-outline">Live</a></div></div>
+                <div class="project-item"><div class="proj-head">File-Convertor</div><div class="proj-body">Frontend+backend utility.</div><div class="project-link"><a href="#" class="btn small"><i class="fab fa-github"></i> code</a><a href="#" class="btn small btn-outline">Live</a></div></div>
+                <div class="project-item"><div class="proj-head">Food-App</div><div class="proj-body">UI + API (restaurants).</div><div class="project-link"><a href="#" class="btn small"><i class="fab fa-github"></i> code</a><a href="#" class="btn small btn-outline">Live</a></div></div>
+                <div class="project-item"><div class="proj-head">Viewflix</div><div class="proj-body">Movie platform.</div><div class="project-link"><a href="#" class="btn small"><i class="fab fa-github"></i> code</a><a href="#" class="btn small btn-outline">Live</a></div></div>
+            </div></div>
+            <div class="tier-block tier3"><div class="tier-badge"><i class="fas fa-layer-group"></i> TIER 3 – support</div><div class="projects-grid">
+                <div class="project-item"><div class="proj-head">student-helper</div><div class="proj-body">Notes, PYQs.</div><div class="project-link"><a href="#" class="btn small"><i class="fab fa-github"></i> code</a><a href="#" class="btn small btn-outline">Live</a></div></div>
+                <div class="project-item"><div class="proj-head">TBS-Manager</div><div class="proj-body">Management system.</div><div class="project-link"><a href="#" class="btn small"><i class="fab fa-github"></i> code</a><a href="#" class="btn small btn-outline">Live</a></div></div>
+                <div class="project-item"><div class="proj-head">portfolio-sambhav</div><div class="proj-body">this portfolio.</div><div class="project-link"><a href="#" class="btn small"><i class="fab fa-github"></i> code</a><a href="#" class="btn small btn-outline">Live</a></div></div>
+            </div></div>
         </section>
-
-        <!-- ACHIEVEMENTS -->
         <section id="achievements">
             <h2 class="section-heading">honors & credentials</h2>
             <div class="achievements-grid">
-                <div class="achievement-card"><i class="fas fa-diploma"></i><p>Advance Diploma in Computer Application (top in institute)</p><button class="verify-btn" onclick="showVerify('Advance Diploma · certificate · top rank')"><i class="fas fa-check-circle"></i> verify</button></div>
-                <div class="achievement-card"><i class="fas fa-trophy"></i><p>IIT Bhubaneswar Battle 2.0</p><button class="verify-btn" onclick="showVerify('IIT BBS participant')"><i class="fas fa-check-circle"></i> verify</button></div>
-                <div class="achievement-card"><i class="fas fa-mobile-alt"></i><p>Swayam Android Mobile App Development</p><button class="verify-btn" onclick="showVerify('Swayam Android dev · certificate')"><i class="fas fa-check-circle"></i> verify</button></div>
-                <div class="achievement-card"><i class="fas fa-trophy"></i><p>Winner Eco Hackathon</p><button class="verify-btn" onclick="showVerify('Eco Hackathon winner')"><i class="fas fa-check-circle"></i> verify</button></div>
+                <div class="achievement-card"><i class="fas fa-diploma"></i><p>Advance Diploma in Computer Application (top in institute)</p><a href="#" class="verify-btn"><i class="fas fa-file-alt"></i>View Certificate</a></div>
+                <div class="achievement-card"><i class="fas fa-trophy"></i><p>IIT Bhubaneswar Battle 2.0</p><a href="#" class="verify-btn"><i class="fas fa-file-alt"></i>View Certificate</a></div>
+                <div class="achievement-card"><i class="fas fa-mobile-alt"></i><p>Swayam Android Mobile App Development</p><a href="#" class="verify-btn"><i class="fas fa-file-alt"></i>View Certificate</a></div>
+                <div class="achievement-card"><i class="fas fa-trophy"></i><p>Winner Eco Hackathon</p><a href="#" class="verify-btn"><i class="fas fa-file-alt"></i>View Certificate</a></div>
             </div>
         </section>
-
-        <!-- CONTACT -->
         <section id="contact">
             <h2 class="section-heading">connect</h2>
             <div class="contact-panel">
-                <div class="contact-info">
-                    <h3>Sambhav Raj</h3>
-                    <div class="contact-detail"><i class="fas fa-envelope"></i> sambhavraj83@gmail.com</div>
-                    <div class="contact-detail"><i class="fas fa-phone-alt"></i> +91 7361065324</div>
-                    <div class="contact-detail"><i class="fas fa-location-dot"></i> Narkatiagan, Patna</div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <input type="text" id="contactName" placeholder="your name" required>
-                    <input type="email" id="contactEmail" placeholder="your email" required>
-                    <textarea id="contactMsg" rows="3" placeholder="your message" required></textarea>
-                    <button type="submit">Send <i class="fas fa-paper-plane"></i></button>
-                </form>
+                <div class="contact-info"><h3>Sambhav Raj</h3><div class="contact-detail"><i class="fas fa-envelope"></i> sambhavraj83@gmail.com</div><div class="contact-detail"><i class="fas fa-phone-alt"></i> +91 7361065324</div><div class="contact-detail"><i class="fas fa-location-dot"></i> Narkatiagan, Patna</div></div>
+                <form class="contact-form" id="contactForm"><input type="text" id="contactName" placeholder="your name" required><input type="email" id="contactEmail" placeholder="your email" required><textarea id="contactMsg" rows="3" placeholder="your message" required></textarea><button type="submit">Send <i class="fas fa-paper-plane"></i></button></form>
             </div>
         </section>
-        <footer class="footer"><p>© 2026 Sambhav Raj · verified portfolio</p></footer>
+        <footer class="footer"><p>© 2026 Sambhav Raj · verified portfolio </p></footer>
     </div>
-
     <div class="back2top" id="back2top"><i class="fas fa-arrow-up"></i></div>
-
     <script>
-        const panel = document.getElementById('infoPanel');
-        const toggle = document.getElementById('menuToggle');
-        if (toggle) {
-            toggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                panel.classList.toggle('active');
-                const icon = toggle.querySelector('i');
-                if (panel.classList.contains('active')) {
-                    icon.className = 'fas fa-times';
-                } else {
-                    icon.className = 'fas fa-bars';
-                }
-            });
-        }
-
-        // Close sidebar when clicking a nav link on mobile
+        const panel = document.getElementById('infoPanel'), toggle = document.getElementById('menuToggle');
+        if(toggle){ toggle.addEventListener('click', (e)=>{ e.stopPropagation(); panel.classList.toggle('active'); const icon = toggle.querySelector('i'); panel.classList.contains('active') ? icon.className = 'fas fa-times' : icon.className = 'fas fa-bars'; }); }
         const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const target = document.querySelector(targetId);
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-                if (window.innerWidth <= 1199) {
-                    panel.classList.remove('active');
-                    if (toggle) {
-                        const icon = toggle.querySelector('i');
-                        if (icon) icon.className = 'fas fa-bars';
-                    }
-                }
-            });
-        });
-
-        // scroll spy
-        const sectionsArr = ['home', 'experience', 'skills', 'projects', 'achievements', 'contact'];
-        window.addEventListener('scroll', () => {
-            let current = '';
-            for (let s of sectionsArr) {
-                const el = document.getElementById(s);
-                if (el && window.scrollY >= el.offsetTop - 200) current = s;
-            }
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-            });
-            const backBtn = document.getElementById('back2top');
-            if (window.scrollY > 400) backBtn.classList.add('show');
-            else backBtn.classList.remove('show');
-        });
-
-        window.showVerify = (msg) => {
-            alert('🔍 VERIFICATION: ' + msg + ' (proof documents available)');
-        };
-
-        const backBtn = document.getElementById('back2top');
-        backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        const contactForm = document.getElementById('contactForm');
-        const toast = document.getElementById('successToast');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('contactName').value.trim();
-            const email = document.getElementById('contactEmail').value.trim();
-            const message = document.getElementById('contactMsg').value.trim();
-            if (!name || !email || !message) { alert('please fill all fields'); return; }
-            const subject = encodeURIComponent(`Portfolio message from ${name}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-            window.location.href = `mailto:sambhavraj83@gmail.com?subject=${subject}&body=${body}`;
-            setTimeout(() => {
-                toast.classList.add('show');
-                setTimeout(() => toast.classList.remove('show'), 4000);
-            }, 150);
-            contactForm.reset();
-        });
+        navLinks.forEach(link => { link.addEventListener('click', (e)=>{ e.preventDefault(); const targetId = link.getAttribute('href'); const target = document.querySelector(targetId); if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); navLinks.forEach(l=>l.classList.remove('active')); link.classList.add('active'); if(window.innerWidth <= 1199){ panel.classList.remove('active'); if(toggle) toggle.querySelector('i').className = 'fas fa-bars'; } }); });
+        const sections = ['home','experience','skills','projects','achievements','contact'];
+        window.addEventListener('scroll', ()=>{ let current=''; for(let s of sections){ const el=document.getElementById(s); if(el && window.scrollY >= el.offsetTop-180) current=s; } navLinks.forEach(link=>{ link.classList.remove('active'); if(link.getAttribute('href') === '#'+current) link.classList.add('active'); }); const backBtn=document.getElementById('back2top'); window.scrollY>400 ? backBtn.classList.add('show') : backBtn.classList.remove('show'); });
+        window.showVerify=(msg)=> alert('🔍 VERIFICATION: '+msg+' (proof documents available)');
+        document.getElementById('back2top').addEventListener('click',()=> window.scrollTo({top:0,behavior:'smooth'}));
+        const contactForm = document.getElementById('contactForm'), toast = document.getElementById('successToast');
+        contactForm.addEventListener('submit',(e)=>{ e.preventDefault(); const name=document.getElementById('contactName').value.trim(), email=document.getElementById('contactEmail').value.trim(), message=document.getElementById('contactMsg').value.trim(); if(!name||!email||!message){ alert('please fill all fields'); return; } const subject=encodeURIComponent(`Portfolio message from ${name}`), body=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`); window.location.href=`mailto:sambhavraj83@gmail.com?subject=${subject}&body=${body}`; setTimeout(()=>{ toast.classList.add('show'); setTimeout(()=> toast.classList.remove('show'),4000); },150); contactForm.reset(); });
     </script>
 </body>
 </html>
